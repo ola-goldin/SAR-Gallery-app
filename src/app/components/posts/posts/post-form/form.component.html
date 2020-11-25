@@ -1,0 +1,40 @@
+
+<div mat-dialog-content>
+    <mat-card-header>
+        <mat-card-title>{{data.title}} post</mat-card-title>
+      </mat-card-header>
+    <form [formGroup]="form" novalidate >
+        <mat-card class="shipping-card">
+           
+          <mat-card-content>
+            <div class="row">
+              <div class="col-12">
+                <mat-form-field  class="w-100">
+                  <textarea matInput placeholder="Title" formControlName="title"></textarea>
+                  <mat-error *ngIf="form.controls['title'].hasError('required')">
+                   Title is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-12">
+                <mat-form-field class="w-100">
+                  <textarea matInput placeholder="Text" formControlName="text"></textarea>
+                  <mat-error *ngIf="form.controls['text'].hasError('required')">
+                   Text is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+       
+            </div>
+          
+          </mat-card-content>
+    
+        </mat-card>
+      </form>
+      
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button  (click)="onNoClick()">No Thanks</button>
+  <button mat-button [disabled]="form.invalid" [mat-dialog-close]="form.value" cdkFocusInitial>Ok</button>
+</div>

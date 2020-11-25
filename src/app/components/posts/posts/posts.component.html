@@ -1,0 +1,24 @@
+
+<div class="p-2">
+    <h2>Posts {{customTitle}}</h2>
+    <button *ngIf="showButtons" class="btn btn-primary mb-2" (click)="add()" >Add post</button>
+    <div class="mb-2" *ngFor="let post of (data | async)">
+        <mat-card >
+            <mat-card-header>
+              <div mat-card-avatar></div>
+              <mat-card-title>{{post.title | titlecase}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>
+                {{post.body}}
+              </p>
+            </mat-card-content>
+            <mat-card-actions *ngIf="showButtons">
+             
+              <button mat-button (click)="update(post)" >UPDATE</button>
+              <button mat-button (click)="delete(post)">DELETE</button>
+            </mat-card-actions>
+          </mat-card> 
+    </div>
+   
+</div>
