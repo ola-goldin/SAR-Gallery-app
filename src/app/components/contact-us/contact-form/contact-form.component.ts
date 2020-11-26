@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { phoneNumberValidator } from '../../../validators/phone.validator';
 
 @Component({
   selector: 'app-contact-form',
@@ -8,10 +9,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class ContactFormComponent {
   contactForm = this.fb.group({
-    fullName: [null, Validators.required],
-    email: [null, [Validators.required, Validators.email]],
-    phone: [null, [Validators.required,
-      Validators.pattern('/^0(5[^7]|[2-4]|[8-9]|7[0-9])[0-9]{7}$/')] ],
+    fullName: [null],
+    email: [null, [ Validators.email]],
+    phone: [null, [phoneNumberValidator ]]
   });
 
   constructor(private fb: FormBuilder) {}
@@ -19,5 +19,6 @@ export class ContactFormComponent {
   onSubmit() {
     if(this.contactForm.valid)
     alert('Thanks!');
+    this.contactForm.reset();  
   }
 }

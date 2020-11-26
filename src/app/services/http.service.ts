@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import {HttpClient} from '@angular/common/http'
-import {  Post } from '../models';
+import {  Post } from '../models/models';
 import { Observable } from 'rxjs';
 import { ActivatedRouteSnapshot } from '@angular/router';
 
@@ -10,7 +10,9 @@ const urlBase = 'https://jsonplaceholder.typicode.com/'
 
 export class HttpService {
   constructor(private http: HttpClient) {}
-  
+
+  public cache = new Map<string, Observable<any> >();
+
   get(url:string, limit:number):Observable<any>{
       return this.http.get<any>(`${urlBase}${url}?_limit=${limit}`)
   }

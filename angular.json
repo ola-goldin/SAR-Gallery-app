@@ -126,6 +126,46 @@
           }
         }
       }
+    },
+    "colour-by-route-lib": {
+      "projectType": "library",
+      "root": "projects/colour-by-route-lib",
+      "sourceRoot": "projects/colour-by-route-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/colour-by-route-lib/tsconfig.lib.json",
+            "project": "projects/colour-by-route-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/colour-by-route-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/colour-by-route-lib/src/test.ts",
+            "tsConfig": "projects/colour-by-route-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/colour-by-route-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/colour-by-route-lib/tsconfig.lib.json",
+              "projects/colour-by-route-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "gellery-app"

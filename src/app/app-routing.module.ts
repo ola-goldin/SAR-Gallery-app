@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContactUsComponent } from './components/contact-us/contact-us/contact-us.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
-import { HomeComponent } from './components/home/home/home.component';
-import { PostsComponent } from './components/posts/posts/posts.component';
+import { HomeComponent } from './components/home/home.component';
+import { PostsComponent } from './components/posts/posts.component';
 import { ResolverService } from './services/resolver.service';
 
 const routes: Routes = [  {path:'', redirectTo:'home', pathMatch:'full'},

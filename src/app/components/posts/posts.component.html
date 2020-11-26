@@ -1,8 +1,8 @@
 
 <div class="p-2">
     <h2>Posts {{customTitle}}</h2>
-    <button *ngIf="showButtons" class="btn btn-primary mb-2" (click)="add()" >Add post</button>
-    <div class="mb-2" *ngFor="let post of (data | async)">
+    <button *ngIf="showButtons" class="mat-focus-indicator mat-raised-button mat-button-base mat-primary mb-2" (click)="add()" >Add post</button>
+    <div class="mb-2" *ngFor="let post of (data | async) | slice:0:limit; let i=index;">
         <mat-card >
             <mat-card-header>
               <div mat-card-avatar></div>

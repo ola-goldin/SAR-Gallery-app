@@ -6,7 +6,7 @@
     <mat-toolbar>Menu</mat-toolbar>
    <app-router-links></app-router-links>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content colour-by-route  >
     <mat-toolbar color="primary">
       <button
         type="button"
@@ -17,8 +17,12 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Gallery app</span>
+      <div  class="d-flex desctop-only w-100 justify-content-lg-end justify-content-xl-end">
+        <app-router-links class="flex-links"></app-router-links>
+      </div>
+    
     </mat-toolbar>
-    <div class="d-flex">
+    <div   style="overflow: hidden;" class="d-flex">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>

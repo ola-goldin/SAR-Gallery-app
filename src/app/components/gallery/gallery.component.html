@@ -2,7 +2,7 @@
     <h2 >Gallery {{customTitle}}</h2>
 
     <div class=" d-flex flex-wrap">
-        <div class="mb-2 mr-sm-0 mr-lg-2 mr-xl-2" *ngFor="let photo of data | async">
+        <div class="mb-2 mr-sm-0 mr-lg-2 mr-xl-2" *ngFor="let photo of data | async | slice:0:limit; let i=index;">
             <mat-card >
                 <mat-card-header>
                   <mat-card-title >{{photo.title.substring(0, 20) + "..." | titlecase}}</mat-card-title>

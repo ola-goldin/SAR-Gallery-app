@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { Photo } from 'src/app/models';
+import { Photo } from 'src/app/models/models';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { Photo } from 'src/app/models';
   styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent implements OnInit {
-
+  @Input('limit') limit: number;
   @Input('customTitle') customTitle:string;
   
   data: Observable<Photo[]> = of([]);
